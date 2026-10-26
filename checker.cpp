@@ -5,7 +5,10 @@ using namespace std;
 
 int main() {
     // チェックする場所。8000 は設定が弱いページ、8001 はそろえたページ
-    httplib::Client cli("127.0.0.1", 8000);
+    int port;
+    cout << "ポート番号を入力してください(8000か8001): ";
+    cin >> port;
+    httplib::Client cli("127.0.0.1", port);
 
     auto res = cli.Get("/");
     if (!res) {
